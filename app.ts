@@ -145,3 +145,33 @@ inputForm.reset();
 
 
 
+//Generics
+
+function doSomething<T>(arg:T): T{
+    //do something
+    return arg;
+}
+
+doSomething<string>('3');
+
+
+
+
+interface book<T>{ //T is just a place-marker for future data that can be declared later but it commonly just noted as T
+    id:number;
+    name:string;
+    data:T;
+}
+
+const aBook: book<string> = {
+id:1,
+name: "Title 1",
+data: "1"
+}
+
+const bBook: book<string[]> = {
+    id:1,
+    name: "Title 1",
+    data: ["Review 1","Review 2", "Review 3"]
+    }
+    

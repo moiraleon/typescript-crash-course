@@ -54,3 +54,15 @@ calcSum2 =(first:number, second:number, third?:number)=>{ //if you add a ? to a 
 calcSum2(2,2);
 //or
 calcSum2(2,2,2);
+
+//interfaces
+
+interface PersonInterface{
+    name:string;
+    age:number;
+}
+
+let mike: PersonInterface ={  //the interface verifies the types and guidelines are met 
+    name:'mike',
+    age: 34
+}

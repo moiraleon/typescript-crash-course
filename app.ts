@@ -87,10 +87,10 @@ greet(){
 }
 
 //creating a new instance of the class 
-let john = new Person('John', 35);
+// let john = new Person('John', 35);
 
 //applying the method to an instance
-console.log(john.greet());
+// console.log(john.greet());
 
 //access modifiers
 //if we add private before  name:string; in the person class than that method of getting the name will only be accessible in the class but without it we can call john.age or john.name
@@ -107,3 +107,41 @@ console.log(john.greet());
 // }
 
 // }
+
+//Dom Manipulation and type casting
+
+const inputName = document.querySelector('#name') as HTMLInputElement; //needs to know what type of input it will be this is referred to as type casting
+const inputAge = document.querySelector('#age') as HTMLInputElement;
+const inputForm = document.querySelector('form')!;
+const greeting = document.querySelector('.greeting') as HTMLDivElement;
+
+//creating a new instance of the class 
+// let john = new Person('John', 35);
+
+//applying the method to an instance
+// console.log(john.greet()); these are commented out to allow us to take these inputs from the front end
+
+// inputForm?.addEventListener('submit',()=>{ question mark is added in case it is null so we can place a ! instead of a type cast to let our code know it will not be null
+
+// })
+
+inputForm.addEventListener('submit',(e)=>{
+e.preventDefault();//default behavior when submitting a form is to refresh the page so this will prevent that
+
+// const person = new Person( inputName.value, inputAge.value)//inputAge as it comes in from the form is retrieved as a string so we need to convert it to a number or grab it as a number even though it is of number type in html
+// })
+
+const person = new Person( inputName.value, inputAge.valueAsNumber)
+
+//add greeting to form submission as of now it wont add innerText because we do not have duv value cast
+
+greeting.innerText = person.greet();
+
+inputForm.reset(); 
+
+})
+
+//quick tips - instead of running tsc each time you want to re run your file run tsc -w to have the tsc files watched and auto compiled each time you save the tsc file
+
+
+

@@ -53,6 +53,37 @@ var Person = /** @class */ (function () {
     return Person;
 }());
 //creating a new instance of the class 
-var john = new Person('John', 35);
+// let john = new Person('John', 35);
 //applying the method to an instance
-console.log(john.greet());
+// console.log(john.greet());
+//access modifiers
+//if we add private before  name:string; in the person class than that method of getting the name will only be accessible in the class but without it we can call john.age or john.name
+//writing the code cleaner
+// class Person implements PersonInterface{
+// constructor(public name :string, public age:number){
+// }
+// greet(){
+//     return `Hi my name is ${this.name} and I am ${this.age}`
+// }
+// }
+//Dom Manipulation and type casting
+var inputName = document.querySelector('#name'); //needs to know what type of input it will be this is referred to as type casting
+var inputAge = document.querySelector('#age');
+var inputForm = document.querySelector('form');
+var greeting = document.querySelector('.greeting');
+//creating a new instance of the class 
+// let john = new Person('John', 35);
+//applying the method to an instance
+// console.log(john.greet()); these are commented out to allow us to take these inputs from the front end
+// inputForm?.addEventListener('submit',()=>{ question mark is added in case it is null so we can place a ! instead of a type cast to let our code know it will not be null
+// })
+inputForm.addEventListener('submit', function (e) {
+    e.preventDefault(); //default behavior when submitting a form is to refresh the page so this will prevent that
+    // const person = new Person( inputName.value, inputAge.value)//inputAge as it comes in from the form is retrieved as a string so we need to convert it to a number or grab it as a number even though it is of number type in html
+    // })
+    var person = new Person(inputName.value, inputAge.valueAsNumber);
+    //add greeting to form submission as of now it wont add innerText because we do not have duv value cast
+    greeting.innerText = person.greet();
+    inputForm.reset();
+});
+//quick tips - instead of running tsc each time you want to re run your file run tsc -w to have the tsc files watched and auto compiled each time you save the tsc file

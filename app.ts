@@ -41,3 +41,16 @@ let year: stringOrNum;
  year = '2021';
 
  //
+
+ function calculateSum(a:number, b:number):number{
+     return a+b;
+ }
+
+ let calcSum2: (a:number, b:number, c?:number)=> number;
+//adding a third and optional parameter can simply be marked with a ?
+calcSum2 =(first:number, second:number, third?:number)=>{ //if you add a ? to a value be sure to add it to the last parameter
+    return first+second;
+}
+calcSum2(2,2);
+//or
+calcSum2(2,2,2);

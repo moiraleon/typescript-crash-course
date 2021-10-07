@@ -87,3 +87,34 @@ inputForm.addEventListener('submit', function (e) {
     inputForm.reset();
 });
 //quick tips - instead of running tsc each time you want to re run your file run tsc -w to have the tsc files watched and auto compiled each time you save the tsc file
+//Generics
+function doSomething(arg) {
+    //do something
+    return arg;
+}
+doSomething('3');
+var aBook = {
+    id: 1,
+    name: "Title 1",
+    data: "1"
+};
+var bBook = {
+    id: 1,
+    name: "Title 1",
+    data: ["Review 1", "Review 2", "Review 3"]
+};
+//Enums
+//enums are a way to assign a descriptive word to a numeric value
+var ManufacturerMake;
+(function (ManufacturerMake) {
+    ManufacturerMake[ManufacturerMake["TESLA"] = 0] = "TESLA";
+    ManufacturerMake[ManufacturerMake["AUDI"] = 1] = "AUDI";
+    ManufacturerMake[ManufacturerMake["MERCEDES"] = 2] = "MERCEDES";
+    ManufacturerMake[ManufacturerMake["VOLVO"] = 3] = "VOLVO";
+    ManufacturerMake[ManufacturerMake["BMW"] = 4] = "BMW";
+})(ManufacturerMake || (ManufacturerMake = {})); //accessible by index values
+var myCar = {
+    year: 2021,
+    make: ManufacturerMake.VOLVO, //this is actually represented by its index value which would be a 3
+};
+console.log(myCar.make);

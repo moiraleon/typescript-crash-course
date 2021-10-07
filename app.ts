@@ -175,3 +175,13 @@ const bBook: book<string[]> = {
     data: ["Review 1","Review 2", "Review 3"]
     }
     
+//Enums
+//enums are a way to assign a descriptive word to a numeric value
+
+enum ManufacturerMake {TESLA,AUDI,MERCEDES,VOLVO,BMW} //accessible by index values
+const myCar ={
+    year:2021,
+    make: ManufacturerMake.VOLVO, //this is actually represented by its index value which would be a 3
+}
+
+console.log(myCar.make)

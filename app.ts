@@ -91,3 +91,19 @@ let john = new Person('John', 35);
 
 //applying the method to an instance
 console.log(john.greet());
+
+//access modifiers
+//if we add private before  name:string; in the person class than that method of getting the name will only be accessible in the class but without it we can call john.age or john.name
+//writing the code cleaner
+ 
+
+
+// class Person implements PersonInterface{
+// constructor(public name :string, public age:number){
+// }
+
+// greet(){
+//     return `Hi my name is ${this.name} and I am ${this.age}`
+// }
+
+// }
